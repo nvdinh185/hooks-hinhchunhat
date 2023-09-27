@@ -5,6 +5,8 @@ const App = () => {
     const [dienTich, setDienTich] = useState('');
     const [errorCD, setErrorCD] = useState('');
     const [errorCR, setErrorCR] = useState('');
+    const [chieuDai, setChieuDai] = useState('');
+    const [chieuRong, setChieuRong] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,6 +22,8 @@ const App = () => {
         if (chieuDai && chieuRong) {
             setChuVi((chieuDai + chieuRong) * 2);
             setDienTich(chieuDai * chieuRong);
+            setChieuDai('');
+            setChieuRong('');
         } else {
             if (!chieuDai) {
                 setErrorCD('Vui lòng nhập chiều dài');
@@ -57,7 +61,8 @@ const App = () => {
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div>
                     <label>Chiều dài</label>
-                    <input onBlur={(e) => handleBlur(e)} onInput={(e) => handleInput(e)} type="text" name="chieudai" />
+                    <input onBlur={(e) => handleBlur(e)} onInput={(e) => handleInput(e)} type="text"
+                        name="chieudai" value={chieuDai} onChange={(e) => { setChieuDai(e.target.value) }} />
                     <span style={{
                         color: 'red',
                         fontStyle: 'italic'
@@ -66,7 +71,8 @@ const App = () => {
                 <br />
                 <div>
                     <label>Chiều rộng</label>
-                    <input onBlur={(e) => handleBlur(e)} onInput={(e) => handleInput(e)} type="text" name="chieurong" />
+                    <input onBlur={(e) => handleBlur(e)} onInput={(e) => handleInput(e)} type="text"
+                        name="chieurong" value={chieuRong} onChange={(e) => { setChieuRong(e.target.value) }} />
                     <span style={{
                         color: 'red',
                         fontStyle: 'italic'
