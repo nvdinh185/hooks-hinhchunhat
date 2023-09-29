@@ -6,19 +6,7 @@ const App = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const formValue = {};
-        for (const el of e.target) {
-            if (el.name) {
-                formValue[el.name] = el.value;
-            }
-        }
-        // console.log(formValue);
-        var chieuDai = Number(formValue['chieudai']);
-        var chieuRong = Number(formValue['chieurong']);
-        if (chieuDai && chieuRong) {
-            setChuVi((chieuDai + chieuRong) * 2);
-            setDienTich(chieuDai * chieuRong);
-        }
+
     }
 
     return (
