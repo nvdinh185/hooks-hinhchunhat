@@ -62,7 +62,8 @@ const App = () => {
                 <div>
                     <label>Chiều dài</label>
                     <input onBlur={(e) => handleBlur(e)} onInput={(e) => handleInput(e)} type="text"
-                        name="chieudai" value={chieuDai} onChange={(e) => { setChieuDai(e.target.value) }} />
+                        name="chieudai" className={errorCD && 'invalid'} value={chieuDai}
+                        onChange={(e) => { setChieuDai(e.target.value) }} />
                     <span style={{
                         color: 'red',
                         fontStyle: 'italic'
@@ -72,7 +73,8 @@ const App = () => {
                 <div>
                     <label>Chiều rộng</label>
                     <input onBlur={(e) => handleBlur(e)} onInput={(e) => handleInput(e)} type="text"
-                        name="chieurong" value={chieuRong} onChange={(e) => { setChieuRong(e.target.value) }} />
+                        name="chieurong" className={errorCR && 'invalid'} value={chieuRong}
+                        onChange={(e) => { setChieuRong(e.target.value) }} />
                     <span style={{
                         color: 'red',
                         fontStyle: 'italic'
