@@ -50,12 +50,12 @@ const App = () => {
 
     return (
         <>
-            <form onSubmit={(e) => handleSubmit(e)}>
+            <form onSubmit={e => handleSubmit(e)}>
                 <div>
                     <label>Chiều dài</label>
-                    <input onBlur={(e) => handleBlur(e)} onInput={(e) => handleInput(e)} type="text"
+                    <input onBlur={e => handleBlur(e)} onInput={e => handleInput(e)} type="text"
                         name="chieudai" className={errorCD && 'invalid'} value={chieuDai}
-                        onChange={(e) => { setChieuDai(e.target.value) }} />
+                        onChange={e => { setChieuDai(e.target.value) }} />
                     <span style={{
                         color: 'red',
                         fontStyle: 'italic'
@@ -64,9 +64,9 @@ const App = () => {
                 <br />
                 <div>
                     <label>Chiều rộng</label>
-                    <input onBlur={(e) => handleBlur(e)} onInput={(e) => handleInput(e)} type="text"
+                    <input onBlur={e => handleBlur(e)} onInput={e => handleInput(e)} type="text"
                         name="chieurong" className={errorCR && 'invalid'} value={chieuRong}
-                        onChange={(e) => { setChieuRong(e.target.value) }} />
+                        onChange={e => { setChieuRong(e.target.value) }} />
                     <span style={{
                         color: 'red',
                         fontStyle: 'italic'
