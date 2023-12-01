@@ -3,6 +3,8 @@ import { useState } from 'react';
 const App = () => {
     const [chuVi, setChuVi] = useState('');
     const [dienTich, setDienTich] = useState('');
+    const [chieuDai, setChieuDai] = useState('');
+    const [chieuRong, setChieuRong] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -14,12 +16,12 @@ const App = () => {
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div>
                     <label>Chiều dài</label>
-                    <input type="text" name="chieudai" />
+                    <input />
                 </div>
                 <br />
                 <div>
                     <label>Chiều rộng</label>
-                    <input type="text" name="chieurong" />
+                    <input />
                 </div>
                 <input type="submit" value="Tinh" />
             </form>
