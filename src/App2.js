@@ -23,7 +23,6 @@ const App = () => {
                 <div>
                     <label>Chiều dài</label>
                     <input
-                        type="text"
                         value={chieuDai}
                         onChange={e => { setChieuDai(e.target.value) }}
                     />
@@ -32,7 +31,6 @@ const App = () => {
                 <div>
                     <label>Chiều rộng</label>
                     <input
-                        type="text"
                         value={chieuRong}
                         onChange={e => { setChieuRong(e.target.value) }}
                     />
