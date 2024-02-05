@@ -3,21 +3,17 @@ import { useState } from 'react';
 const App = () => {
     const [chuVi, setChuVi] = useState('');
     const [dienTich, setDienTich] = useState('');
+    const [chieuDai, setChieuDai] = useState('');
+    const [chieuRong, setChieuRong] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const formValue = {};
-        for (const el of e.target) {
-            if (el.name) {
-                formValue[el.name] = el.value;
-            }
-        }
-        // console.log(formValue);
-        var chieuDai = Number(formValue['chieudai']);
-        var chieuRong = Number(formValue['chieurong']);
+
         if (chieuDai && chieuRong) {
-            setChuVi((chieuDai + chieuRong) * 2);
+            setChuVi((Number(chieuDai) + Number(chieuRong)) * 2);
             setDienTich(chieuDai * chieuRong);
+            setChieuDai('');
+            setChieuRong('');
         }
     }
 
@@ -26,12 +22,18 @@ const App = () => {
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div>
                     <label>Chiều dài</label>
-                    <input type="text" name="chieudai" />
+                    <input
+                        value={chieuDai}
+                        onChange={e => { setChieuDai(e.target.value) }}
+                    />
                 </div>
                 <br />
                 <div>
                     <label>Chiều rộng</label>
-                    <input type="text" name="chieurong" />
+                    <input
+                        value={chieuRong}
+                        onChange={e => { setChieuRong(e.target.value) }}
+                    />
                 </div>
                 <input type="submit" value="Tinh" />
             </form>
