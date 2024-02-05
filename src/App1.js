@@ -10,9 +10,17 @@ const App = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        const formValue = {};
+        for (const el of e.target) {
+            if (el.name) {
+                formValue[el.name] = el.value;
+            }
+        }
+        // console.log(formValue);
+        var chieuDai = Number(formValue['chieudai']);
+        var chieuRong = Number(formValue['chieurong']);
         if (chieuDai && chieuRong) {
-            setChuVi((Number(chieuDai) + Number(chieuRong)) * 2);
+            setChuVi((chieuDai + chieuRong) * 2);
             setDienTich(chieuDai * chieuRong);
             setChieuDai('');
             setChieuRong('');
@@ -29,11 +37,11 @@ const App = () => {
     }
 
     const handleBlur = (e) => {
-        if (e.target.name === 'chieudai') {
+        if (e.target.name == 'chieudai') {
             if (!e.target.value) {
                 setErrorCD('Vui lòng nhập chiều dài');
             }
-        } else if (e.target.name === 'chieurong') {
+        } else if (e.target.name == 'chieurong') {
             if (!e.target.value) {
                 setErrorCR('Vui lòng nhập chiều rộng');
             }
@@ -41,24 +49,21 @@ const App = () => {
     }
 
     const handleInput = (e) => {
-        if (e.target.name === 'chieudai') {
+        if (e.target.name == 'chieudai') {
             setErrorCD('')
-        } else if (e.target.name === 'chieurong') {
+        } else if (e.target.name == 'chieurong') {
             setErrorCR('');
         }
     }
 
     return (
         <>
-            <form onSubmit={e => handleSubmit(e)}>
+            <form onSubmit={(e) => handleSubmit(e)}>
                 <div>
                     <label>Chiều dài</label>
-                    <input type="text" value={chieuDai} name="chieudai"
-                        onBlur={e => handleBlur(e)}
-                        onInput={e => handleInput(e)}
-                        className={errorCD && 'invalid'}
-                        onChange={e => { setChieuDai(e.target.value) }}
-                    />
+                    <input onBlur={(e) => handleBlur(e)} onInput={(e) => handleInput(e)} type="text"
+                        name="chieudai" className={errorCD && 'invalid'} value={chieuDai}
+                        onChange={(e) => { setChieuDai(e.target.value) }} />
                     <span style={{
                         color: 'red',
                         fontStyle: 'italic'
@@ -67,12 +72,9 @@ const App = () => {
                 <br />
                 <div>
                     <label>Chiều rộng</label>
-                    <input type="text" value={chieuRong} name="chieurong"
-                        onBlur={e => handleBlur(e)}
-                        onInput={e => handleInput(e)}
-                        className={errorCR && 'invalid'}
-                        onChange={e => { setChieuRong(e.target.value) }}
-                    />
+                    <input onBlur={(e) => handleBlur(e)} onInput={(e) => handleInput(e)} type="text"
+                        name="chieurong" className={errorCR && 'invalid'} value={chieuRong}
+                        onChange={(e) => { setChieuRong(e.target.value) }} />
                     <span style={{
                         color: 'red',
                         fontStyle: 'italic'
