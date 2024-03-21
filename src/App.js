@@ -9,6 +9,7 @@ const App = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        // Neu co nhap chieu dai, chieu rong thi tinh
         if (chieuDai && chieuRong) {
             setChuVi((Number(chieuDai) + Number(chieuRong)) * 2);
             setDienTich(chieuDai * chieuRong);
