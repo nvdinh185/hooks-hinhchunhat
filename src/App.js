@@ -10,21 +10,20 @@ const App = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        if (chieuDai && chieuRong) {
+        let check = true;
+        if (!chieuDai) {
+            setErrorCD('Vui lòng nhập chiều dài');
+            check = false;
+        }
+        if (!chieuRong) {
+            setErrorCR('Vui lòng nhập chiều rộng');
+            check = false;
+        }
+        if (check) {
             setChuVi((Number(chieuDai) + Number(chieuRong)) * 2);
             setDienTich(chieuDai * chieuRong);
             setChieuDai('');
             setChieuRong('');
-        } else {
-            if (!chieuDai) {
-                setErrorCD('Vui lòng nhập chiều dài');
-            }
-            if (!chieuRong) {
-                setErrorCR('Vui lòng nhập chiều rộng');
-            }
-            setChuVi('')
-            setDienTich('')
         }
     }
 
